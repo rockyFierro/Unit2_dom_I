@@ -14,35 +14,45 @@ const siteContent = {
     "img-src": "img/header-img.png"
   },
   "main-content": {
-    "features-h4":"Features",
+    "features-h4": "Features",
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "about-h4":"About",
+    "about-h4": "About",
     "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "middle-img-src": "img/mid-page-accent.jpg",
-    "services-h4":"Services",
+    "services-h4": "Services",
     "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "product-h4":"Product",
+    "product-h4": "Product",
     "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "vision-h4":"Vision",
+    "vision-h4": "Vision",
     "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
   },
   "contact": {
-    "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
-    "phone" : "1 (888) 888-8888",
-    "email" : "sales@greatidea.io",
+    "contact-h4": "Contact",
+    "address": "123 Way 456 Street Somewhere, USA",
+    "phone": "1 (888) 888-8888",
+    "email": "sales@greatidea.io",
   },
   "footer": {
-    "copyright" : "Copyright Great Idea! 2018"
+    "copyright": "Copyright Great Idea! 2018"
   },
 };
 
 // Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+//edited for continuity and length
+let logo = document.getElementById("logo-img").src = siteContent.nav["img-src"];
 
-const source = Object.values(siteContent.nav);
-source.forEach((link, index) => {
+//navigation bar variables
+const navSource = Object.values(siteContent.nav);
+const navbar = document.querySelectorAll("a");
+
+//call to action variables and assignment
+const hTag = document.querySelector('h1').textContent = siteContent.cta.h1;
+const button = document.querySelector('button').innerHTML = siteContent.cta.button;
+const ctaImage = document.getElementById('cta-img').src = siteContent.cta["img-src"];
+//main content top content
+
+
+navSource.forEach((link, index) => {
   navbar[index].textContent = link;
   navbar[index].setAttribute("src", link);
 });
