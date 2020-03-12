@@ -85,4 +85,5 @@ const footerCR = selector("footer p").textContent = siteContent.footer.copyright
 navSource.forEach((link, index) => {
   navbar[index].textContent = link;
   navbar[index].setAttribute("src", link);
+  navbar[index].style.color = "green";
 });
