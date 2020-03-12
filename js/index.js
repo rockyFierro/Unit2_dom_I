@@ -49,9 +49,39 @@ const navbar = document.querySelectorAll("a");
 const hTag = document.querySelector('h1').textContent = siteContent.cta.h1;
 const button = document.querySelector('button').innerHTML = siteContent.cta.button;
 const ctaImage = document.getElementById('cta-img').src = siteContent.cta["img-src"];
+
 //main content top content
+const selector = arg => document.querySelector(arg);
+const selectorAll = arg => document.querySelectorAll(arg);
 
+const articleHeading = selectorAll('.text-content h4');
+const articleContent = selectorAll('.text-content p');
 
+const mainSource = siteContent["main-content"];
+
+articleHeading[0].textContent = mainSource["features-h4"];
+articleContent[0].textContent = mainSource["features-content"];
+articleHeading[1].textContent = mainSource["about-h4"];
+articleContent[1].textContent = mainSource["about-content"];
+articleHeading[2].textContent = mainSource["services-h4"];
+articleContent[2].textContent = mainSource["services-content"];
+articleHeading[3].textContent = mainSource["product-h4"];
+articleContent[3].textContent = mainSource["product-content"];
+articleHeading[4].textContent = mainSource["vision-h4"];
+articleContent[4].textContent = mainSource["vision-content"];
+const codeImg = selector("#middle-img").src = mainSource["middle-img-src"];
+
+const contactInfoHeading = selector(".contact h4");
+const contactInfo = selectorAll(".contact p");
+
+contactInfoHeading.textContent = siteContent.contact["contact-h4"];
+
+contactInfo[0].textContent = siteContent.contact.address;
+contactInfo[1].textContent = siteContent.contact.phone;
+contactInfo[2].textContent = siteContent.contact.email;
+
+const footerCR = selector("footer p").textContent = siteContent.footer.copyright;
+//get that navbar up
 navSource.forEach((link, index) => {
   navbar[index].textContent = link;
   navbar[index].setAttribute("src", link);
