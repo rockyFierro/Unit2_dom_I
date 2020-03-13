@@ -37,5 +37,103 @@ const siteContent = {
   },
 };
 
+/************\
+Navigation bar
+\************/
+
+let logo = document.getElementById("logo-img");
+logo.setAttribute("src", siteContent["nav"]["img-src"]);
+
+/*gather the information we want to reference.*/
+
+const link_get = Object.values(siteContent.nav);
+
+/*gather the location we want to display that information*/
+
+const link = document.getElementsByTagName("a");
+// const nav_bar = document.getElementsByTagName("nav");
+
+// link[0].textContent = link_get[0];
+// link[1].textContent = link_get[1];
+// link[2].textContent = link_get[2];
+// link[3].textContent = link_get[3];
+// link[4].textContent = link_get[4];
+// link[5].textContent = link_get[5];
+// link[0].style.color = "green";
+// link[1].style.color = "green";
+// link[2].style.color = "green";
+// link[3].style.color = "green";
+// link[4].style.color = "green";
+// link[5].style.color = "green";
+
+//cursed loop will break code if un-commented.
+for (let i = 0; i < 6; i++) {
+  link[i].textContent = link_get[i];
+  link[i].style.color = "green";
+};
+
+
+/********************************\
+  prepends and appending children
+\********************************/
+
+const appendix = document.createElement("a");
+appendix.textContent = " Appendix";
+const appendix_link = link[5].appendChild(appendix);
+appendix.style.marginLeft = "2rem";
+appendix.style.color = "green";
+
+
+const prologue = document.createElement("a");
+prologue.textContent = "Prologue";
+const prologue_link = link[0].prepend(prologue);
+prologue.style.marginRight = "2rem";
+prologue.style.color = "green";
+
+
+/********************\
+call to action banner
+\********************/
+
+const call_to_action = document.getElementByClassName;
+
+const h_tag_banner = document.querySelector(".cta h1");
+h_tag_banner.textContent = siteContent.cta["h1"];
+
+const button = document.querySelector("button");
+button.innerHTML = siteContent.cta["button"];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/******************************************
+ *                                        *
+ *                   ██   █▄▄▄▄ ▄████     *
+ *                   █ █  █  ▄▀ █▀   ▀    *
+ *                   █▄▄█ █▀▀▌  █▀▀       *
+ *                   █  █ █  █  █         *
+ *                      █   █    █        *
+ *                     █   ▀      ▀       *
+ *                    ▀                   *
+ *   repeat until page is illuminated     *
+ ******************************************/
 
 
