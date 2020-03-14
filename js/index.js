@@ -103,7 +103,8 @@ h_tag_banner.textContent = siteContent.cta["h1"];
 const button = document.querySelector("button");
 button.innerHTML = siteContent.cta["button"];
 
-
+const cta_image = document.getElementById("cta-img");
+cta_image.src = siteContent.cta["img-src"];
 
 
 
