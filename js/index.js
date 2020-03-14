@@ -37,106 +37,104 @@ const siteContent = {
   },
 };
 
+/************\
+Navigation bar
+\************/
+
+let logo = document.getElementById("logo-img");
+logo.setAttribute("src", siteContent["nav"]["img-src"]);
+
+/*gather the information we want to reference.*/
+
+const link_get = Object.values(siteContent.nav);
+
+/*gather the location we want to display that information*/
+
+const link = document.getElementsByTagName("a");
+// const nav_bar = document.getElementsByTagName("nav");
+
+// link[0].textContent = link_get[0];
+// link[1].textContent = link_get[1];
+// link[2].textContent = link_get[2];
+// link[3].textContent = link_get[3];
+// link[4].textContent = link_get[4];
+// link[5].textContent = link_get[5];
+// link[0].style.color = "green";
+// link[1].style.color = "green";
+// link[2].style.color = "green";
+// link[3].style.color = "green";
+// link[4].style.color = "green";
+// link[5].style.color = "green";
+
+//cursed loop will break code if un-commented.
+for (let i = 0; i < 6; i++) {
+  link[i].textContent = link_get[i];
+  link[i].style.color = "green";
+};
+
+
+/********************************\
+  prepends and appending children
+\********************************/
+
+const appendix = document.createElement("a");
+appendix.textContent = " Appendix";
+const appendix_link = link[5].appendChild(appendix);
+appendix.style.marginLeft = "2rem";
+appendix.style.color = "green";
+
+
+const prologue = document.createElement("a");
+prologue.textContent = "Prologue";
+const prologue_link = link[0].prepend(prologue);
+prologue.style.marginRight = "2rem";
+prologue.style.color = "green";
+
+
+/********************\
+call to action banner
+\********************/
+
+const call_to_action = document.getElementByClassName;
+
+const h_tag_banner = document.querySelector(".cta h1");
+h_tag_banner.textContent = siteContent.cta["h1"];
+
+const button = document.querySelector("button");
+button.innerHTML = siteContent.cta["button"];
+
+const cta_image = document.getElementById("cta-img");
+cta_image.src = siteContent.cta["img-src"];
 
 
 
 
-//////////////////////////////////////////////////////////////
-////****************    LET'S CODE!!     ***************//////
-//////////////////////////////////////////////////////////////
-
-const selector = arg => document.querySelector(arg);
-const selectorAll = arg => document.querySelectorAll(arg);
-
-// Example: Update the img src for the logo
-//edited for continuity and length
-
-let logo = selector("#logo-img").src = siteContent.nav["img-src"];
-
-//navigation bar variables
-// first the source
-// second the location the data will be sent
-
-const navSource = Object.values(siteContent.nav); 
-const navbar = document.querySelectorAll("a");
 
 
-//call to action variables and assignment
-//declare the htag, where it is and where its data is
-//declare the button, where it is and where its data is
-//declare the image, where it is and where its data is
-
-const hTag = document.querySelector('h1').textContent = siteContent.cta.h1;
-const button = document.querySelector('button').innerHTML = siteContent.cta.button;
-const ctaImage = document.getElementById('cta-img').src = siteContent.cta["img-src"];
-
-//main content top content
-//declare an array to hold all the headings
-//declare an array to hold all the articles
-
-const articleHeading = selectorAll('.text-content h4');
-const articleContent = selectorAll('.text-content p');
-
-//shorten out work a little with an alias
-
-const mainSource = siteContent["main-content"];
-
-//TODO:
-//Find the iteration that will shuffle the source and the reference
-//together to shorten this dictionary... 
-//function returning reference did not work.
-
-articleHeading[0].textContent = mainSource["features-h4"];
-articleContent[0].textContent = mainSource["features-content"];
-articleHeading[1].textContent = mainSource["about-h4"];
-articleContent[1].textContent = mainSource["about-content"];
-articleHeading[2].textContent = mainSource["services-h4"];
-articleContent[2].textContent = mainSource["services-content"];
-articleHeading[3].textContent = mainSource["product-h4"];
-articleContent[3].textContent = mainSource["product-content"];
-articleHeading[4].textContent = mainSource["vision-h4"];
-articleContent[4].textContent = mainSource["vision-content"];
-const codeImg = selector("#middle-img").src = mainSource["middle-img-src"];
 
 
-//declare heading and info for contact area
-
-const contactInfoHeading = selector(".contact h4");
-const contactInfo = selectorAll(".contact p");
-
-//set info for contact heading
-
-contactInfoHeading.textContent = siteContent.contact["contact-h4"];
-
-//TODO: 
-//Use previous solution to article problem here
-
-contactInfo[0].textContent = siteContent.contact.address;
-contactInfo[1].textContent = siteContent.contact.phone;
-contactInfo[2].textContent = siteContent.contact.email;
-
-//footer - a pleasure to work with you; declare and set
-
-const footerCR = selector("footer p").textContent = siteContent.footer.copyright;
 
 
-//cursed loop
-//if this is moved to its original spot
-//on line 62 everything breaks.
 
-navSource.forEach((link, index) => {
-  navbar[index].textContent = link;
-  navbar[index].setAttribute("src", link);
-  navbar[index].style.color = "green";
-});
 
-//cursed loop is preventing newcomers
-//lets make these new links fast
 
-const newlink1 = document.createElement("a"),
-      newlink2 = document.createElement("a");
-newlink1.innerText = "HELLO";
-newlink2.innerText = "WORLD";
-const parentEl = selector("nav");
-parentEl.appendChild(newlink2);
-parentEl.prepend(newlink1);
+
+
+
+
+
+
+
+/******************************************
+ *                                        *
+ *                   ██   █▄▄▄▄ ▄████     *
+ *                   █ █  █  ▄▀ █▀   ▀    *
+ *                   █▄▄█ █▀▀▌  █▀▀       *
+ *                   █  █ █  █  █         *
+ *                      █   █    █        *
+ *                     █   ▀      ▀       *
+ *                    ▀                   *
+ *   repeat until page is illuminated     *
+ ******************************************/
+
+
