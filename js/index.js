@@ -37,42 +37,63 @@ const siteContent = {
   },
 };
 
+//I'm sort of bummed that I didn't think of this until halfway done with 
+//the code. the first half uses mostly getElementBy... so it works out
+//any more abstraction might be worth it in the long run 
+//but only if I'm willing to build my own personal library
+//probably bad practice when working with others.
 
-
-
-
-//////////////////////////////////////////////////////////////
-////****************    LET'S CODE!!     ***************//////
-//////////////////////////////////////////////////////////////
 
 const selector = arg => document.querySelector(arg);
 const selectorAll = arg => document.querySelectorAll(arg);
 
-// Example: Update the img src for the logo
-//edited for continuity and length
 
-let logo = selector("#logo-img").src = siteContent.nav["img-src"];
+/************\
+Navigation bar
+\************/
 
-//navigation bar variables
-// first the source
-// second the location the data will be sent
+let logo = document.getElementById("logo-img");
+logo.setAttribute("src", siteContent["nav"]["img-src"]);
+const link_get = Object.values(siteContent.nav);
+const link = document.getElementsByTagName("a");
+for (let i = 0; i < 6; i++) {
+  link[i].textContent = link_get[i];
+  link[i].style.color = "green";
+};
 
-const navSource = Object.values(siteContent.nav); 
-const navbar = document.querySelectorAll("a");
+
+/********************************\
+  prepends and appending children
+\********************************/
+
+const appendix = document.createElement("a");
+appendix.textContent = " Appendix";
+const appendix_link = link[5].appendChild(appendix);
+appendix.style.marginLeft = "2rem";
+appendix.style.color = "green";
 
 
-//call to action variables and assignment
-//declare the htag, where it is and where its data is
-//declare the button, where it is and where its data is
-//declare the image, where it is and where its data is
+const prologue = document.createElement("a");
+prologue.textContent = "Prologue";
+const prologue_link = link[0].prepend(prologue);
+prologue.style.marginRight = "2rem";
+prologue.style.color = "green";
 
-const hTag = document.querySelector('h1').textContent = siteContent.cta.h1;
-const button = document.querySelector('button').innerHTML = siteContent.cta.button;
-const ctaImage = document.getElementById('cta-img').src = siteContent.cta["img-src"];
 
-//main content top content
-//declare an array to hold all the headings
-//declare an array to hold all the articles
+/********************\
+call to action banner
+\********************/
+
+const call_to_action = document.getElementByClassName;
+
+const h_tag_banner = document.querySelector(".cta h1");
+h_tag_banner.textContent = siteContent.cta["h1"];
+
+const button = document.querySelector("button");
+button.innerHTML = siteContent.cta["button"];
+const banner_image = document.getElementById("cta-img");
+banner_image.setAttribute("src", siteContent["cta"]["img-src"]);
+
 
 const articleHeading = selectorAll('.text-content h4');
 const articleContent = selectorAll('.text-content p');
@@ -85,6 +106,13 @@ const mainSource = siteContent["main-content"];
 //Find the iteration that will shuffle the source and the reference
 //together to shorten this dictionary... 
 //function returning reference did not work.
+
+/*
+TODO:
+- create array with 'main source' 
+- move img-src to end of the array
+-base for(loop) on 
+*/
 
 articleHeading[0].textContent = mainSource["features-h4"];
 articleContent[0].textContent = mainSource["features-content"];
@@ -120,23 +148,3 @@ contactInfo[2].textContent = siteContent.contact.email;
 const footerCR = selector("footer p").textContent = siteContent.footer.copyright;
 
 
-//cursed loop
-//if this is moved to its original spot
-//on line 62 everything breaks.
-
-navSource.forEach((link, index) => {
-  navbar[index].textContent = link;
-  navbar[index].setAttribute("src", link);
-  navbar[index].style.color = "green";
-});
-
-//cursed loop is preventing newcomers
-//lets make these new links fast
-
-const newlink1 = document.createElement("a"),
-      newlink2 = document.createElement("a");
-newlink1.innerText = "HELLO";
-newlink2.innerText = "WORLD";
-const parentEl = selector("nav");
-parentEl.appendChild(newlink2);
-parentEl.prepend(newlink1);
